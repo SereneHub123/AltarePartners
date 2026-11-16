@@ -56,4 +56,4 @@ src/main/resources/
 
 ## Licence
 
-All rights reserved by the Altare network.
+All rights reserved by Serene (And Altare).
