@@ -38,35 +38,6 @@ year-based releases. Tested by compiling against both Paper 1.16.5 and Paper
 broadcasts it to everyone when run from the console. `/altare` also answers to
 `/altarepartners`, `/partners` and `/ap`.
 
-## Configuration
-
-```yaml
-# Name inserted wherever <ServerName> appears in the announcements.
-server-name: "Your Server"
-
-# Announcements are always enabled and rotate every 10 minutes.
-announcements:
-  prefix: "<#2fff6b><bold>ꜱᴘᴏɴꜱᴏʀ</bold></#2fff6b> <dark_gray>»</dark_gray>"
-  sound: ENTITY_EXPERIENCE_ORB_PICKUP
-```
-
-- `server-name` replaces the `<ServerName>` placeholder (`%server_name%` works too).
-- `announcements.prefix` is parsed as MiniMessage. On Paper versions without
-  MiniMessage, `&` codes and `<#rrggbb>` hex colours still work.
-- `announcements.sound` accepts either a Bukkit enum name
-  (`ENTITY_EXPERIENCE_ORB_PICKUP`) or a vanilla sound key
-  (`entity.experience_orb.pickup`). Use `none` to disable the sound.
-
-## Building
-
-Requires a **full JDK 21** (a JRE is not enough) and network access to
-`repo.papermc.io`.
-
-```bash
-./gradlew build
-```
-
-The jar is written to `build/libs/AltarePartners-1.0.0.jar`.
 
 ## Project layout
 
