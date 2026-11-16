@@ -4,19 +4,6 @@ A standalone Paper plugin that advertises **Altare.gg** hosting to your players:
 broadcasts a rotating sponsor announcement every 10 minutes and ships a `/sponser`
 menu with the free tier, Altare Plus and a link to the website.
 
-## Features
-
-- **Two built-in announcements**, compulsory and always enabled — no config list to
-  maintain and nothing to switch on.
-- **Rotates every 10 minutes** (fixed in code) and cycles through the announcements
-  in order.
-- **`/sponser` menu** — a 27-slot inventory with the free tier, Altare Plus and a
-  clickable altare.gg link.
-- **Configurable branding** — server name, prefix and sound are the only settings.
-- **Clickable links** in chat via Adventure, so players can jump straight to the site.
-- **Version-agnostic rendering** — MiniMessage when the server provides it
-  (Paper 1.18.2+), automatic legacy colour-code fallback on older Paper builds.
-
 ## Requirements
 
 | Item | Requirement |
