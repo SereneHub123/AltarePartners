@@ -47,6 +47,20 @@ broadcasts it to everyone when run from the console. `/altare` also answers to
 `/altarepartners`, `/partners` and `/ap`.
 
 
+## Building
+
+Requires a **full JDK 21** (a JRE is not enough) and network access to
+`repo.papermc.io` and `hub.spigotmc.org`.
+
+```bash
+./gradlew build
+```
+
+```text
+build/libs/AltarePartners-1.1.0.jar                 modern build (Paper 1.16.5+)
+legacy/build/libs/AltarePartners-Legacy-1.1.0.jar   legacy build (Spigot 1.8.8+)
+```
+
 ## Project layout
 
 ```text
@@ -65,20 +79,6 @@ legacy/src/main/java/com/altare/partners/legacy/   legacy build (1.8.8)
 ├── LegacySponsorCommand.java   /sponser command
 ├── LegacySponsorGui.java       27-slot sponsor menu
 └── LegacyText.java             MiniMessage tags to legacy colour codes
-```
-
-## Building
-
-Requires a **full JDK 21** (a JRE is not enough) and network access to
-`repo.papermc.io` and `hub.spigotmc.org`.
-
-```bash
-./gradlew build
-```
-
-```text
-build/libs/AltarePartners-1.1.0.jar                 modern build (Paper 1.16.5+)
-legacy/build/libs/AltarePartners-Legacy-1.1.0.jar   legacy build (Spigot 1.8.8+)
 ```
 
 ## Licence
