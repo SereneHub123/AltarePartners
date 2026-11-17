@@ -1,0 +1,25 @@
+name: AltarePartners
+version: '${version}'
+main: com.altare.partners.legacy.LegacyPlugin
+description: Rotating partner announcements for the Altare network (Spigot/Paper 1.8.8 build).
+author: Altare
+website: https://altare.it
+
+commands:
+  altare:
+    description: Manage Altare partner announcements
+    usage: /altare <reload|list|preview|test>
+    permission: altarepartners.admin
+    aliases: [altarepartners, partners, ap]
+  sponser:
+    description: View Altare.gg hosting plans and open the website
+    usage: /sponser
+    permission: altarepartners.sponsor
+
+permissions:
+  altarepartners.admin:
+    description: Manage and reload Altare partner announcements
+    default: op
+  altarepartners.sponsor:
+    description: Open the Altare sponsor menu
+    default: true

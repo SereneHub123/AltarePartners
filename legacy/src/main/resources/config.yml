@@ -1,0 +1,11 @@
+# ============================================
+#  ALTARE PARTNERS  (1.8.8 build)
+# ============================================
+# Name inserted wherever <ServerName> appears in the announcements.
+server-name: "Your Server"
+
+# Announcements are always enabled and rotate every 10 minutes.
+# These are the only announcement settings.
+announcements:
+  prefix: "<#2fff6b><bold>ꜱᴘᴏɴꜱᴏʀ</bold></#2fff6b> <dark_gray>»</dark_gray>"
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP

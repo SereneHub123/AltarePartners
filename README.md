@@ -1,25 +1,33 @@
 # AltarePartners
 
-A standalone Paper plugin that advertises **Altare.gg** hosting to your players: it
+A standalone plugin that advertises **Altare.gg** hosting to your players: it
 broadcasts a rotating sponsor announcement every 10 minutes and ships a `/sponser`
 menu with the free tier, Altare Plus and a link to the website.
 
-## Requirements
+Two jars are built from this repository, because Minecraft 1.8.8 and modern Paper
+share almost no UI API.
 
-| Item | Requirement |
-| --- | --- |
-| Server | Paper 1.16.5 or newer (including the year-based `26.x` releases) |
-| Java | 11 or newer |
-| Compiled against | Paper API 1.21.11, Java 11 bytecode |
+## Which jar do I need?
 
-The plugin is compiled to Java 11 bytecode and only uses API that exists on Paper
-1.16.5, so the same jar runs on every version from 1.16.5 up to the current
-year-based releases. Tested by compiling against both Paper 1.16.5 and Paper
-1.21.11.
+| Server | Jar | Java |
+| --- | --- | --- |
+| Spigot / Paper 1.8.8 – 1.15.x | `AltarePartners-Legacy-1.1.0.jar` | 8+ |
+| Paper 1.16.5 – 26.x | `AltarePartners-1.1.0.jar` | 11+ |
+
+Install exactly one of them. Both use the same plugin name, commands, permissions
+and `plugins/AltarePartners/config.yml`, so you can swap jars without losing your
+settings.
+
+- **Legacy jar** — legacy colour codes, Bungee chat click events, pre-1.13 material
+  names with automatic fallbacks, Java 8 bytecode. Compiles against the Spigot 1.8.8
+  API and the exact chat library that 1.8.8 bundles.
+- **Modern jar** — Adventure components and MiniMessage with a legacy fallback,
+  Java 11 bytecode. Compiles against Paper 1.21.11 and only uses API that also
+  exists on Paper 1.16.5, so one jar spans 1.16.5 to the year-based releases.
 
 ## Installation
 
-1. Drop `AltarePartners-1.0.0.jar` into your server's `plugins/` folder.
+1. Drop the jar for your server version into `plugins/`.
 2. Restart the server.
 3. Edit `plugins/AltarePartners/config.yml` if you want to change the branding.
 4. Run `/altare reload`.
@@ -41,17 +49,36 @@ broadcasts it to everyone when run from the console. `/altare` also answers to
 
 ## Project layout
 
-```
-src/main/java/com/altare/partners/
+```text
+src/main/java/com/altare/partners/          modern build (Adventure / MiniMessage)
 ├── AltarePartners.java         plugin entry point
 ├── AnnouncementManager.java    built-in announcements, 10-minute rotation
 ├── AltarePartnersCommand.java  /altare admin command
 ├── SponsorCommand.java         /sponser command
 ├── SponsorGui.java             27-slot sponsor menu
 └── Text.java                   MiniMessage + legacy fallback parser
-src/main/resources/
-├── config.yml
-└── plugin.yml
+
+legacy/src/main/java/com/altare/partners/legacy/   legacy build (1.8.8)
+├── LegacyPlugin.java           plugin entry point
+├── LegacyAnnouncements.java    built-in announcements, 10-minute rotation
+├── LegacyAdminCommand.java     /altare admin command
+├── LegacySponsorCommand.java   /sponser command
+├── LegacySponsorGui.java       27-slot sponsor menu
+└── LegacyText.java             MiniMessage tags to legacy colour codes
+```
+
+## Building
+
+Requires a **full JDK 21** (a JRE is not enough) and network access to
+`repo.papermc.io` and `hub.spigotmc.org`.
+
+```bash
+./gradlew build
+```
+
+```text
+build/libs/AltarePartners-1.1.0.jar                 modern build (Paper 1.16.5+)
+legacy/build/libs/AltarePartners-Legacy-1.1.0.jar   legacy build (Spigot 1.8.8+)
 ```
 
 ## Licence
